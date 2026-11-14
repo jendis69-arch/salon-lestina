@@ -1,0 +1,1113 @@
+
+    <!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4f0">
+  <title>Kadeřnický salon Leština | Jana Kvapilová</title>
+
+  <style>
+    :root {
+      --background: #f7f4f0;
+      --surface: #fffefa;
+      --ink: #332d2a;
+      --muted: #70655e;
+      --accent: #8b6657;
+      --accent-dark: #6e4c40;
+      --line: #e4dad2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    .button {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 3px solid #b8886e;
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 18px 0;
+    }
+
+    .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.brand-logo {
+  display: block;
+  flex: 0 0 52px;
+  width: 60px;
+  height: 60px;
+  padding: 3px;
+  border: 1px var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  object-fit: contain;
+}
+
+    .brand span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav,
+    .languages {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    nav {
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .languages {
+      gap: 4px;
+    }
+
+    .languages button {
+      padding: 5px 9px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .languages button[aria-pressed="true"] {
+      border-color: var(--accent);
+    }
+
+    .hero {
+      padding: 95px 0 85px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    h1 {
+      max-width: 750px;
+      margin: 16px 0 20px;
+      font-size: clamp(2.7rem, 6vw, 5rem);
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--accent-dark);
+    }
+
+    .button-outline:hover {
+      background: #f0e8e2;
+    }
+
+    section {
+      padding: 70px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .intro {
+      max-width: 750px;
+      color: var(--muted);
+    }
+
+    .notice {
+      padding: 16px 20px;
+      border-left: 3px solid var(--accent);
+      background: #f0e9e3;
+    }
+
+    .price-list {
+      margin-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .price-row strong {
+      white-space: nowrap;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .voucher {
+      max-width: 680px;
+    }
+    .voucher-image {
+      display: block;
+      width: 100%;
+      max-width: 460px;
+      margin: 23px auto;
+    }
+
+    .voucher-price {
+      margin: 10px 0;
+      color: var(--accent-dark);
+      font-family: Georgia, serif;
+      font-size: 2.2rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .contact-list p {
+      margin: 0;
+    }
+
+    .contact-list a {
+      text-underline-offset: 3px;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        gap: 15px;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+     
+      .price-row {
+        gap: 15px;
+      }
+    }
+  .shop-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: 24px;
+  align-items: start;
+  margin-top: 28px;
+}
+
+.shop-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 20px;
+}
+
+.shop-product {
+  min-width: 0;
+}
+
+.shop-product img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.shop-price {
+  color: var(--accent-dark);
+  font-weight: bold;
+}
+
+.cart-list li {
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+.cart-remove {
+  padding: 10px 5px;
+  border: 0;
+  background: transparent;
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cart-remove:hover {
+  color: var(--accent);
+}
+
+
+@media (max-width: 700px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+}
+#shop-details summary {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  list-style: none;
+}
+
+#shop-details summary::-webkit-details-marker {
+  display: none;
+}
+
+#shop-details[open] summary {
+  margin-bottom: 24px;
+}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <img class="brand-logo" src="Fotky/Logo2.png" alt="Jana Kvapilová">
+        <div>
+        Jana Kvapilová
+        <span data-i18n="brandSubtitle"></span>
+        </div>
+      </a>
+
+      <nav id="navigation" aria-label="Hlavní navigace">
+        <a href="#sluzby" data-i18n="navServices"></a>
+        <a href="#kosmetika" data-i18n="navProducts"></a>
+        <a href="#eshop" data-i18n="navShop"></a>
+        <a href="#poukazy" data-i18n="navVouchers"></a>
+        <a href="#kontakt" data-i18n="navContact"></a>
+      </nav>
+
+      <div class="languages" role="group" aria-label="Language / Jazyk">
+        <button id="cs-button" type="button" lang="cs" aria-pressed="true">CZ</button>
+        <button id="en-button" type="button" lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="container hero">
+  <style>
+  .hero-background {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #f7f4f0;
+  }
+
+  .hero-background__slides,
+  .hero-background__shade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero-background__slides {
+    z-index: -2;
+  }
+
+  .hero-background__image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 800ms ease-in-out;
+  }
+
+  .hero-background__image.is-active {
+    opacity: 1;
+  }
+
+  .hero-background__shade {
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgba(247, 244, 240, 0.96) 0%,
+      rgba(247, 244, 240, 0.86) 50%,
+      rgba(247, 244, 240, 0.45) 100%
+    );
+  }
+
+  .hero-background__controls {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .hero-background__button {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: rgba(45, 36, 32, 0.65);
+    color: white;
+    font: 28px/1 Georgia, serif;
+    cursor: pointer;
+  }
+
+  .hero-background__button:hover {
+    background: rgba(45, 36, 32, 0.85);
+  }
+
+  @media (max-width: 700px) {
+    .hero-background__shade {
+      background: rgba(247, 244, 240, 0.82);
+    }
+
+    .hero-background .hero {
+      padding-bottom: 100px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-background__image {
+      transition: none;
+    }
+  }
+</style>
+
+<div class="hero-background">
+  <div class="hero-background__slides" aria-hidden="true">
+    <img class="hero-background__image is-active" src="Fotky/Image1.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image2.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image3.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image4.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image5.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image6.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image7.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image8.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image9.jpg" alt="">
+  </div>
+
+  <div class="hero-background__shade" aria-hidden="true"></div>
+
+  <div class="container hero">
+    <span class="eyebrow" data-i18n="heroEyebrow"></span>
+    <h1 data-i18n="heroTitle"></h1>
+    <p data-i18n="heroText"></p>
+
+    <div class="buttons">
+      <a class="button" href="#poukazy" data-i18n="heroVoucher"></a>
+      <a class="button button-outline" href="#kontakt" data-i18n="heroContact"></a>
+    </div>
+  </div>
+
+  <div class="hero-background__controls">
+    <button
+      class="hero-background__button"
+      type="button"
+      data-direction="-1"
+      aria-label="Předchozí fotografie"
+    >&#8249;</button>
+    <button
+      class="hero-background__button"
+      type="button"
+      data-direction="1"
+      aria-label="Další fotografie"
+    >&#8250;</button>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const hero = document.currentScript.previousElementSibling;
+    const images = hero.querySelectorAll(".hero-background__image");
+    const controls = hero.querySelectorAll("[data-direction]");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let current = 0;
+    let timer;
+
+    function showImage(index) {
+      images[current].classList.remove("is-active");
+      current = (index + images.length) % images.length;
+      images[current].classList.add("is-active");
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      if (!reducedMotion.matches && images.length > 1) {
+        timer = setInterval(() => showImage(current + 1), 4000);
+      }
+    }
+
+    controls.forEach((button) => {
+      button.addEventListener("click", () => {
+        showImage(current + Number(button.dataset.direction));
+        startTimer();
+      });
+    });
+
+    reducedMotion.addEventListener("change", startTimer);
+    startTimer();
+  })();
+</script>
+    <section id="sluzby">
+      <div class="container">
+        <span class="eyebrow" data-i18n="servicesEyebrow"></span>
+        <h2 data-i18n="servicesTitle"></h2>
+
+        <p class="intro" data-i18n="servicesIntro"></p>
+        <p class="notice" data-i18n="capacityNotice"></p>
+
+        <div class="price-list">
+          <div class="price-row">
+            <span data-i18n="serviceCut"></span>
+            <strong>700 - 1 100 Kč</strong>
+          </div>
+          <div class="price-row">
+            <span data-i18n="serviceRoots"></span>
+            <strong>1 350 - 2 300 Kč</strong>
+          </div>
+          <div class="price-row">
+            <span data-i18n="serviceColour"></span>
+            <strong>1 350 - 2 700 Kč</strong>
+          </div>
+          <div class="price-row">
+            <span data-i18n="serviceLight"></span>
+            <strong>1 450 - 3 400 Kč</strong>
+          </div>
+          <div class="price-row">
+            <span data-i18n="serviceAdvanced"></span>
+            <strong>1 560 - 6 000 Kč</strong>
+          </div>
+          <div class="price-row">
+            <span data-i18n="servicePerm"></span>
+            <strong>1 350 - 2 300 Kč</strong>
+          </div>
+        </div>
+
+        <p class="small" data-i18n="priceNote"></p>
+        <p class="small" data-i18n="shampooNote"></p>
+        <p>
+          <a class="button button-outline" href="tel:+420603828963" data-i18n="callSalon"></a>
+        </p>
+      </div>
+    </section>
+
+    <section id="kosmetika">
+      <div class="container">
+        <span class="eyebrow" data-i18n="productsEyebrow"></span>
+        <h2 data-i18n="productsTitle"></h2>
+        <p class="intro" data-i18n="productsIntro"></p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Davines</h3>
+            <p data-i18n="davinesText"></p>
+          </article>
+          <article class="card">
+            <h3>KUBO</h3>
+            <p data-i18n="kuboText"></p>
+          </article>
+        </div>
+
+        <p class="small" data-i18n="shopComing"></p>
+      </div>
+    </section>
+
+   <section id="eshop">
+  <div class="container">
+     <details id="shop-details">
+      <summary class="button">
+        <span data-i18n="shopButton"></span> ▾
+      </summary>
+    <span class="eyebrow" data-i18n="shopEyebrow"></span>
+    <h2 data-i18n="shopTitle"></h2>
+    <p class="notice" data-i18n="shopNotice"></p>
+
+    <div class="shop-layout">
+      <div>
+        <div id="shop-products" class="shop-products"></div>
+        <p id="shop-empty" class="small" data-i18n="shopEmpty" hidden></p>
+      </div>
+
+      <aside class="card" aria-labelledby="cart-title">
+        <h3 id="cart-title" data-i18n="cartTitle"></h3>
+        <p id="cart-empty" class="small" data-i18n="cartEmpty"></p>
+        <ul id="cart-list" class="cart-list"></ul>
+
+        <p>
+          <strong data-i18n="cartTotal"></strong>
+          <strong id="cart-total"></strong>
+        </p>
+
+        <p class="small" data-i18n="checkoutNotice"></p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+   
+    <section id="poukazy">
+      <div class="container">
+        <span class="eyebrow" data-i18n="vouchersEyebrow"></span>
+        <h2 data-i18n="vouchersTitle"></h2>
+
+        <article class="card voucher">
+          <h3 data-i18n="voucherName"></h3>
+          <img class="voucher-image" src="Fotky/Poukaz.png" alt="Dárkový poukaz">
+          <p data-i18n="voucherDescription"></p>
+          <p data-i18n="voucherNewClients"></p>
+          <p class="notice" data-i18n="voucherNotice"></p>
+          <a class="button button-outline" href="tel:+420603828963" data-i18n="voucherContact"></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container">
+        <span class="eyebrow" data-i18n="contactEyebrow"></span>
+        <h2 data-i18n="contactTitle"></h2>
+
+        <div class="contact-list">
+          <p>
+            <strong data-i18n="contactSalon"></strong><br>
+            Jana Kvapilová<br>
+            Leština 16<br>
+            400 02 Malé Březno
+          </p>
+          <p>
+            <strong data-i18n="contactPhone"></strong><br>
+            <a href="tel:+420603828963">+420 603 828 963</a>
+          </p>
+          <p>
+            <strong>E-mail</strong><br>
+            <a href="mailto:janakvapa@seznam.cz">janakvapa@seznam.cz</a>
+          </p>
+          <p>
+            <strong>Instagram</strong><br>
+            <a href="https://www.instagram.com/andelevtvychvlasech/" target="_blank" rel="noopener noreferrer">andelevtvychvlasech</a>
+          </p>
+          <p>
+            <strong>Facebook</strong><br>
+            <a href="https://www.facebook.com/profile.php?id=100052171886028" target="_blank" rel="noopener noreferrer">Kadeřnický salon Leština Jana Kvapilová
+</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Jana Kvapilová · <span data-i18n="footerText"></span>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      cs: {
+        navigationLabel: "Hlavní navigace",
+        brandSubtitle: "Kadeřnický salon Leština",
+        navServices: "Služby a ceník",
+        navProducts: "Kosmetika",
+        shopButton: "Kliknutím se přesunete na výběr vlasové kosmetiky",
+        shopEyebrow: "Péče o vlasy",
+        shopTitle: "E-shop",
+        shopNotice: "Náhled e-shopu - ukázkový produkt ani jeho cena nejsou skutečnou nabídkou.",
+        shopEmpty: "Produkty připravujeme.",
+        cartTitle: "Nákupní košík",
+        cartEmpty: "Košík je zatím prázdný.",
+        cartTotal: "Celkem:",
+        checkoutNotice: "Objednávky a platby zatím nejsou spuštěny.",
+        addToCart: "Přidat do košíku",
+        removeFromCart: "Odebrat",
+        quantity: "Počet",
+        navVouchers: "Poukazy",
+        navContact: "Kontakt",
+        heroEyebrow: "Kadeřnický salon Leština",
+        heroTitle: "Péče o vlasy s osobním přístupem.",
+        heroText: "Kadeřnické služby, plesové účesy, vlasová kosmetika a dárkové poukazy pro vaše blízké",
+        heroVoucher: "Dárkový poukaz",
+        heroContact: "Kontaktujte salon",
+        servicesEyebrow: "Salon menu",
+        servicesTitle: "Služby a ceník",
+        servicesIntro: "Cena závisí na spotřebě materiálu, náročnosti služby a hustotě a délce vlasů.",
+        capacityNotice: "Nepřijíám nové klientky, ale dárkové poukazy mohou využít i nové klientky.",
+        serviceCut: "Střih vlasů, péče, konečná úprava",
+        serviceRoots: "Barvení odrostů nebo tónování, péče, konečná úprava",
+        serviceColour: "Barvení vlasů - celé délky, péče, konečná úprava",
+        serviceLight: "Zesvětlující jemné techniky, péče, konečná úprava",
+        serviceAdvanced: "Zesvětlující náročné techniky, péče, konečná úprava (mikromelír, balayage, foliage, odbarvení)",
+        servicePerm: "Trvalá ondulace",
+        priceNote: "Ceník platný od 1. 9. 2026",
+        shampooNote: "Před návštěvou salonu je ideální použít čisticí šampon Detoxifying Davines.",
+        callSalon: "Zavolat do salonu",
+        productsEyebrow: "Péče o vlasy",
+        productsTitle: "Vlasová kosmetika",
+        productsIntro: "Pracuji s vlasovou kosmetikoiu Davines a japonskou značkou KUBO",
+        davinesText: "Naše Manifesto formuje naše rozhodnutí a způsob, jakým podnikáme. Spojuje naše hodnoty, naši kulturu a naši dlouhodobou vizi, aby nám pomáhal zůstat věrní těmto principům a společně utvářet harmonickou budoucnost. Je typicky Davines – spojuje v sobě smysl a úžas, vycházející z přesvědčení, že na tom, jak věci děláme, záleží stejně jako na samotných činech, které uskutečňujeme. Naše značka ožívá prostřednictvím lidí, kteří se o ni každý den starají. Proto Manifesto video představuje tváře a domovy členů naší vlastní komunity – těch, kteří svou energií a inspirací neúnavně udržují naši vizi živou.",
+        kuboText: "Příběh KUBO není jen příběhem o vzniku značky. Je to příběh hluboké proměny, osobního hledání a cesty k autenticitě, která začala před více než 15 lety. Bylo to období, kdy se mé sny brutálně střetly s monotónní realitou. Uvízl jsem v únavně předvídatelném životě, kde mě každý den v kanceláři dusil a tvůrčí jiskra, která kdysi rozjasňovala mou duši, pomalu vyhasínala, pohlcena každodenní rutinou",
+        shopComing: "Podívejte se na náš e-shop",
+        vouchersEyebrow: "Dárek pro vaše blízké",
+        vouchersTitle: "Dárkové poukazy",
+        voucherName: "Pro vaše blízké",
+        voucherDescription: "Připravujeme možnost zakoupit poukaz online, obdržet ho e-mailem a vytisknout. Poukaz bude možné zakoupit také osobně v salonu.",
+        voucherNewClients: "Poukaz mohou využít i zákazníci, kteří u Jany ještě nebyli.",
+        voucherNotice: "Nejen pro stálé klientky",
+        voucherContact: "Zeptat se na poukaz",
+        contactEyebrow: "Najdete nás",
+        contactTitle: "Kontakt",
+        contactSalon: "Kadeřnický salon Leština",
+        contactPhone: "Telefon",
+        footerText: "Kadeřnický salon Leština"
+      },
+      en: {
+        navigationLabel: "Main navigation",
+        brandSubtitle: "Leština hair salon",
+        navServices: "Services & prices",
+        navProducts: "Hair care",
+        shopButton: "Click to view hair care products",
+        shopEyebrow: "Hair care",
+        shopTitle: "Online shop",
+        shopNotice: "Shop preview - the sample product and its price are not a real offer.",
+        shopEmpty: "Products are coming soon.",
+        cartTitle: "Shopping cart",
+        cartEmpty: "Your cart is empty.",
+        cartTotal: "Total:",
+        checkoutNotice: "Online orders and payments are not available yet.",
+        addToCart: "Add to cart",
+        removeFromCart: "Remove",
+        quantity: "Quantity",
+        navVouchers: "Gift vouchers",
+        navContact: "Contact",
+        heroEyebrow: "Leština hair salon",
+        heroTitle: "Hair care with a personal touch.",
+        heroText: "Hair services by Janička, buy hair cosmetics and gift vouchers for your loved ones",
+        heroVoucher: "Gift voucher",
+        heroContact: "Contact the salon",
+        servicesEyebrow: "Salon menu",
+        servicesTitle: "Services & prices",
+        servicesIntro: "Prices depend on the amount of product used, the complexity of the service, and the thickness and length of your hair.",
+        capacityNotice: "I do not accept new clients, but gift vouchers can be used by new clients.",
+        serviceCut: "Haircut, treatment and finishing",
+        serviceRoots: "Root colouring or toning, treatment and finishing",
+        serviceColour: "Full-length colouring, treatment and finishing",
+        serviceLight: "Gentle lightening techniques, treatment and finishing",
+        serviceAdvanced: "Advanced lightening techniques, treatment and finishing (micro-highlights, balayage, foliage, bleaching)",
+        servicePerm: "Permanent wave",
+        priceNote: "Price list effective from 1 September 2026.",
+        shampooNote: "It is recommended to use the Detoxifying Davines shampoo before visiting the salon.",
+        callSalon: "Call the salon",
+        productsEyebrow: "Hair care",
+        productsTitle: "Hair care products",
+        productsIntro: "Working with Davines hair care and the Japanese brand KUBO.",
+        davinesText: "Our Manifesto shapes our choices and how we do business. It brings together our values, our culture, and our long-term vision to help us stay true to these principles and shape a harmonious future. It is distinctly Davines: equal parts purpose and wonder, rooted in the belief that how we do things matters just as much as the actions we take. And our brand comes to life through the people who care for it every day. This is why our Manifesto video features the faces and represents the homes of our very own community - the ones who work tirelessly to keep our vision alive through their energy and inspiration. You’ll also meet a special guide to lead you through our manifesto, a furry friend who walks alongside our community listening with love and attention.",
+        kuboText: "The story of KUBO is not simply the creation of a brand. It is the story of a deep transformation, a personal quest, and a journey towards authenticity that began more than 15 years ago. It was a time when my dreams collided brutally with a monotonous reality. I was trapped in a tediously predictable life, where each day in the office suffocated me, and the creative spark that once illuminated my spirit slowly faded, consumed by routine.",
+        shopComing: "Take a look at our shop preview below",
+        vouchersEyebrow: "A gift for someone special",
+        vouchersTitle: "Gift vouchers",
+        voucherName: "For your loved ones",
+        voucherDescription: "We are preparing the option to buy a voucher online, receive it by email and print it. Vouchers will also be available to buy in person at the salon.",
+        voucherNewClients: "",
+        voucherNotice: "Online purchases are not available yet.",
+        voucherContact: "Ask about a voucher",
+        contactEyebrow: "Find us",
+        contactTitle: "Contact",
+        contactSalon: "Leština hair salon",
+        contactPhone: "Phone",
+        footerText: "Leština hair salon"
+      }
+    };
+
+    // PRODUKTY E-SHOPU
+// První produkt je pouze ukázka. Nahraď ho skutečnými údaji.
+const products = [
+  {
+    id: "produkt-1",
+    name: {
+      cs: "KUBO Repair Therapy",
+      en: "Kubo Repair Therapy"
+    },
+    description: {
+      cs: "KUBO .",
+      en: "Mixing set Kubo."
+    },
+    price: 1000,
+    image: "Fotky/prvni-produkt.jpeg"
+  },
+  {
+    id: "produkt-2",
+    name: {
+      cs: "Davines OI Shampoo",
+      en: "Davines OI Shampoo"
+    },
+    description: {
+      cs: "Výživný šampon pro všechny typy vlasů",
+      en: "Nourishing shampoo for all hair types"
+    },
+    price: 549,
+    image: "Fotky/druhy-produkt.png"
+  },
+  {
+    id: "produkt-3",
+    name: {
+      cs: "Davines OI All in One Milk",
+      en: "Davines OI All in One Milk"
+    },
+    description: {
+      cs: "Výživný mléčný produkt pro všechny typy vlasů",
+      en: "Nourishing milk product for all hair types"
+    },
+    price: 449,
+    image: "Fotky/treti-produkt.png"
+  },
+  {
+    id: "produkt-4",
+    name: {
+      cs: "Davines OI Conditioner",
+      en: "Davines OI Conditioner"
+    },
+    description: {
+      cs: "Výživný kondicionér pro všechny typy vlasů",
+      en: "Nourishing conditioner for all hair types"
+    },
+    price: 629,
+    image: "Fotky/ctvrty-produkt.png"
+  },
+  {
+    id: "produkt-5",
+    name: {
+      cs: "Davines OI Hair Butter",
+      en: "Davines OI Hair Butter"
+    },
+    description: {
+      cs: "Výživný vlasový máslo pro všechny typy vlasů",
+      en: "Nourishing hair butter for all hair types"
+    },
+    price: 809,
+    image: "Fotky/paty-produkt.png"
+  },
+  {
+    id: "produkt-6",
+    name: {
+      cs: "Davines HEART OF GLASS Shampoo",
+      en: "Davines HEART OF GLASS Shampoo"
+    },
+    description: {
+      cs: "Výživný šampon pro všechny typy vlasů",
+      en: "Nourishing shampoo for all hair types"
+    },
+    price: 689,
+    image: "Fotky/sesty-produkt.png"
+  },
+  {
+    id: "produkt-7",
+    name: {
+      cs: "Davines HEART OF GLASS Intense Treatment",
+      en: "Davines HEART OF GLASS Intense Treatment"
+    },
+    description: {
+      cs: "Výživná péče pro všechny typy vlasů",
+      en: "Nourishing treatment for all hair types"
+    },
+    price: 729,
+    image: "Fotky/sedmy-produkt.png"
+  },
+  {
+    id: "produkt-8",
+    name: {
+      cs: "Davines HEART OF GLASS Rich Conditioner",
+      en: "Davines HEART OF GLASS Rich Conditioner"
+    },
+    description: {
+      cs: "Výživný kondicionér pro všechny typy vlasů",
+      en: "Nourishing conditioner for all hair types"
+    },
+    price: 869,
+    image: "Fotky/osmy-produkt.png"
+  },
+  {
+    id: "produkt-9",
+    name: {
+      cs: "Davines HEART OF GLASS Beautiful Things Restoring Leave-In Mask",
+      en: "Davines HEART OF GLASS Beautiful Things Restoring Leave-In Mask"
+    },
+    description: {
+      cs: "Výživná vlasová maska pro všechny typy vlasů",
+      en: "Nourishing hair mask for all hair types"
+    },
+    price: 819,
+    image: "Fotky/devaty-produkt.png"
+  }
+];
+
+// Košík funguje pouze během otevření stránky.
+// Po obnovení nebo zavření stránky se vyprázdní.
+const cart = {};
+
+function formatPrice(price, language) {
+  return new Intl.NumberFormat(language === "cs" ? "cs-CZ" : "en-GB", {
+    style: "currency",
+    currency: "CZK",
+    maximumFractionDigits: 0
+  }).format(price);
+}
+
+function renderShop(language) {
+  const text = translations[language];
+  const productList = document.getElementById("shop-products");
+  const cartList = document.getElementById("cart-list");
+  const cartEmpty = document.getElementById("cart-empty");
+  const cartTotal = document.getElementById("cart-total");
+
+  productList.replaceChildren();
+  cartList.replaceChildren();
+
+  document.getElementById("shop-empty").hidden = products.length > 0;
+
+  for (const product of products) {
+    const card = document.createElement("article");
+    card.className = "card shop-product";
+
+    if (product.image) {
+      const image = document.createElement("img");
+      image.src = product.image;
+      image.alt = product.name[language];
+      image.loading = "lazy";
+      card.appendChild(image);
+    }
+
+    const name = document.createElement("h3");
+    name.textContent = product.name[language];
+
+    const description = document.createElement("p");
+    description.textContent = product.description[language];
+
+    const price = document.createElement("p");
+    price.className = "shop-price";
+    price.textContent = formatPrice(product.price, language);
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "button";
+    button.textContent = text.addToCart;
+
+    button.addEventListener("click", () => {
+      cart[product.id] = (cart[product.id] || 0) + 1;
+      renderShop(language);
+    });
+
+    card.append(name, description, price, button);
+    productList.appendChild(card);
+  }
+
+  let total = 0;
+  let itemCount = 0;
+
+  for (const product of products) {
+    const quantity = cart[product.id] || 0;
+
+    if (quantity === 0) continue;
+
+    itemCount += quantity;
+    total += product.price * quantity;
+
+    const item = document.createElement("li");
+    const label = document.createElement("span");
+
+    label.textContent =
+      `${product.name[language]} – ${text.quantity}: ${quantity} – ` +
+      formatPrice(product.price * quantity, language);
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "cart-remove";
+    remove.textContent = text.removeFromCart;
+    remove.setAttribute(
+      "aria-label",
+      `${text.removeFromCart}: ${product.name[language]}`
+    );
+
+    remove.addEventListener("click", () => {
+      delete cart[product.id];
+      renderShop(language); 
+    });
+
+    item.append(label, remove);
+    cartList.appendChild(item);
+  }
+
+  cartEmpty.hidden = itemCount > 0;
+  cartTotal.textContent = formatPrice(total, language);
+}
+
+    
+    function setLanguage(language) {
+      const text = translations[language];
+      document.documentElement.lang = language;
+      document.title = language === "cs"
+        ? "Kadeřnický salon Leština | Jana Kvapilová"
+        : "Leština hair salon | Jana Kvapilová";
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        element.textContent = text[element.dataset.i18n];
+      });
+
+      document.getElementById("navigation")
+        .setAttribute("aria-label", text.navigationLabel);
+
+      document.getElementById("cs-button")
+        .setAttribute("aria-pressed", String(language === "cs"));
+
+      document.getElementById("en-button")
+        .setAttribute("aria-pressed", String(language === "en"));
+        renderShop(language);
+    }
+
+    document.getElementById("cs-button")
+      .addEventListener("click", () => setLanguage("cs"));
+
+    document.getElementById("en-button")
+      .addEventListener("click", () => setLanguage("en"));
+
+    setLanguage("cs");
+  </script>
+</body>
+</html>
