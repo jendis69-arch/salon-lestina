@@ -262,7 +262,7 @@
       padding: 28px;
       border: 1px solid var(--line);
       border-radius: 6px;
-      background: var(--surface);
+      background: var(none--surface);
     }
 
     .card h3 {
@@ -386,6 +386,8 @@
   display: block;
   width: 100%;
   max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
   list-style: none;
 }
 
@@ -463,6 +465,61 @@
 #sluzby .container > p:last-child {
   text-align: center;
 }
+/* ===== Hair care + vouchers: centered ===== */
+#kosmetika .container,
+#poukazy .container {
+  width: min(900px, 90%);
+  text-align: center;
+}
+
+#kosmetika h2,
+#poukazy h2 {
+  display: inline-block;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#kosmetika .intro {
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#kosmetika .card {
+  text-align: center;
+}
+
+#poukazy .voucher {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+#poukazy .notice {
+  border-left: 0;
+  border-top: 3px solid var(--accent);
+  font-weight: normal;
+};
+/* Remove the fill from cards and notices */
+.card,
+.notice {
+  background: transparent;
+}
+
+/* Add a border around the price list */
+#sluzby .price-list {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 24px 24px;
+}
+#navigation {
+  flex: 1 1 auto;
+  justify-content: space-evenly;
+  gap: 12px 18px;
+}
+
   </style>
 </head>
 
@@ -593,9 +650,10 @@
     <img class="hero-background__image" src="Fotky/Image7.jpg" alt="">
     <img class="hero-background__image" src="Fotky/Image8.jpg" alt="">
     <img class="hero-background__image" src="Fotky/Image9.jpg" alt="">
+    <img class="hero-background__image" src="Fotky/Image10.jpeg" alt="">
   </div>
 
-  <div class="hero-background__shade" aria-hidden="true"></div>
+<div class="hero-background__shade" style="background: linear-gradient(90deg, rgba(247, 244, 240, 0.92) 0%, rgba(247, 244, 240, 0.8) 50%, rgba(247, 244, 240, 0.4) 100%);"></div>
 
   <div class="container hero">
     <span class="eyebrow" data-i18n="heroEyebrow"></span>
@@ -730,7 +788,7 @@
       </summary>
     <span class="eyebrow" data-i18n="shopEyebrow"></span>
     <h2 data-i18n="shopTitle"></h2>
-    <p class="notice" data-i18n="shopNotice"></p>
+    
 
     <div class="shop-layout">
       <div>
@@ -772,37 +830,95 @@
     </section>
 
     <section id="kontakt">
-      <div class="container">
-        <span class="eyebrow" data-i18n="contactEyebrow"></span>
-        <h2 data-i18n="contactTitle"></h2>
+  <style>
+    #kontakt .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
 
-        <div class="contact-list">
-          <p>
-            <strong data-i18n="contactSalon"></strong><br>
-            Jana Kvapilová<br>
-            Leština 16<br>
-            400 02 Malé Březno
-          </p>
-          <p>
-            <strong data-i18n="contactPhone"></strong><br>
-            <a href="tel:+420603828963">+420 603 828 963</a>
-          </p>
-          <p>
-            <strong>E-mail</strong><br>
-            <a href="mailto:janakvapa@seznam.cz">janakvapa@seznam.cz</a>
-          </p>
-          <p>
-            <strong>Instagram</strong><br>
-            <a href="https://www.instagram.com/andelevtvychvlasech/" target="_blank" rel="noopener noreferrer">andelevtvychvlasech</a>
-          </p>
-          <p>
-            <strong>Facebook</strong><br>
-            <a href="https://www.facebook.com/profile.php?id=100052171886028" target="_blank" rel="noopener noreferrer">Kadeřnický salon Leština Jana Kvapilová
-</a>
-          </p>
-        </div>
+    #kontakt .contact-map {
+      min-width: 0;
+    }
+
+    #kontakt .contact-map iframe {
+      display: block;
+      width: 100%;
+      height: 320px;
+      border: 0;
+      border-radius: 6px;
+    }
+
+    #kontakt .map-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 700px) {
+      #kontakt .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      #kontakt .contact-map iframe {
+        height: 280px;
+      }
+    }
+  </style>
+
+  <div class="container contact-layout">
+    <div>
+      <span class="eyebrow" data-i18n="contactEyebrow"></span>
+      <h2 data-i18n="contactTitle"></h2>
+
+      <div class="contact-list">
+        <p>
+          <strong data-i18n="contactSalon"></strong><br>
+          Jana Kvapilová<br>
+          Leština 16<br>
+          400 02 Malé Březno
+        </p>
+        <p>
+          <strong data-i18n="contactPhone"></strong><br>
+          <a href="tel:+420603828963">+420 603 828 963</a>
+        </p>
+        <p>
+          <strong>E-mail</strong><br>
+          <a href="mailto:janakvapa@seznam.cz">janakvapa@seznam.cz</a>
+        </p>
+        <p>
+          <strong>Instagram</strong><br>
+          <a href="https://www.instagram.com/andelevtvychvlasech/" target="_blank" rel="noopener noreferrer">andelevtvychvlasech</a>
+        </p>
+        <p>
+          <strong>Facebook</strong><br>
+          <a href="https://www.facebook.com/profile.php?id=100052171886028" target="_blank" rel="noopener noreferrer">Kadeřnický salon Leština Jana Kvapilová</a>
+        </p>
       </div>
-    </section>
+    </div>
+
+    <div class="contact-map">
+      <iframe
+        title="Mapa – Kadeřnický salon Leština"
+        src="https://maps.google.com/maps?q=Le%C5%A1tina%2016%2C%20400%2002%20Mal%C3%A9%20B%C5%99ezno%2C%20Czech%20Republic&z=16&output=embed"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+
+      <div class="map-buttons">
+        <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Le%C5%A1tina%2016%2C%20400%2002%20Mal%C3%A9%20B%C5%99ezno%2C%20Czech%20Republic" target="_blank" rel="noopener noreferrer">Google Maps</a>
+        <a class="button" href="https://maps.apple.com/?daddr=Le%C5%A1tina%2016%2C%20400%2002%20Mal%C3%A9%20B%C5%99ezno%2C%20Czech%20Republic" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
   </main>
 
   <footer>
@@ -817,11 +933,10 @@
         navigationLabel: "Hlavní navigace",
         brandSubtitle: "Kadeřnický salon Leština",
         navServices: "Ceník",
-        navProducts: "Kosmetika",
-        shopButton: "Kliknutím se přesunete na výběr vlasové kosmetiky",
+        navProducts: "Vlasová kosmetika",
+        shopButton: "Kliknutím se přesunete na E-shop",
         shopEyebrow: "Péče o vlasy",
         shopTitle: "E-shop",
-        shopNotice: "Náhled e-shopu - ukázkový produkt ani jeho cena nejsou skutečnou nabídkou.",
         shopEmpty: "Produkty připravujeme.",
         cartTitle: "Nákupní košík",
         cartEmpty: "Košík je zatím prázdný.",
@@ -830,11 +945,11 @@
         addToCart: "Přidat do košíku",
         removeFromCart: "Odebrat",
         quantity: "Počet",
-        navVouchers: "Poukazy",
+        navVouchers: "Dárkové poukazy",
         navContact: "Kontakt",
         heroEyebrow: "Kadeřnický salon Leština",
-        heroTitle: "Péče o vlasy s osobním přístupem.",
-        heroText: "Kadeřnické služby, plesové účesy, vlasová kosmetika a dárkové poukazy pro vaše blízké",
+        heroTitle: "Andělé v tvých vlasech",
+        heroText: "Kadeřnické služby, plesové účesy, svatební účesy, vlasová kosmetika a dárkové poukazy pro vaše blízké",
         heroVoucher: "Dárkový poukaz",
         heroContact: "Kontaktujte salon",
         servicesTitle: "Ceník",
@@ -848,13 +963,11 @@
         priceNote: "Ceník platný od 1. 9. 2026",
         shampooNote: "Před návštěvou salonu je ideální použít čisticí šampon Detoxifying Davines.",
         callSalon: "Zavolat do salonu",
-        productsEyebrow: "Péče o vlasy",
+        navShop:" E-shop",
         productsTitle: "Vlasová kosmetika",
-        productsIntro: "Pracuji s vlasovou kosmetikoiu Davines a japonskou značkou KUBO",
-        davinesText: "Naše Manifesto formuje naše rozhodnutí a způsob, jakým podnikáme. Spojuje naše hodnoty, naši kulturu a naši dlouhodobou vizi, aby nám pomáhal zůstat věrní těmto principům a společně utvářet harmonickou budoucnost. Je typicky Davines – spojuje v sobě smysl a úžas, vycházející z přesvědčení, že na tom, jak věci děláme, záleží stejně jako na samotných činech, které uskutečňujeme. Naše značka ožívá prostřednictvím lidí, kteří se o ni každý den starají. Proto Manifesto video představuje tváře a domovy členů naší vlastní komunity – těch, kteří svou energií a inspirací neúnavně udržují naši vizi živou.",
-        kuboText: "Příběh KUBO není jen příběhem o vzniku značky. Je to příběh hluboké proměny, osobního hledání a cesty k autenticitě, která začala před více než 15 lety. Bylo to období, kdy se mé sny brutálně střetly s monotónní realitou. Uvízl jsem v únavně předvídatelném životě, kde mě každý den v kanceláři dusil a tvůrčí jiskra, která kdysi rozjasňovala mou duši, pomalu vyhasínala, pohlcena každodenní rutinou",
-        shopComing: "Podívejte se na náš e-shop",
-        vouchersEyebrow: "Dárek pro vaše blízké",
+        productsIntro: "Pracuji s vlasovou kosmetikoiu Davines a španělskou značkou KUBO inspirovanou japonskou péčí.",
+        davinesText: "Davines je italská rodinná značka profesionální vlasové kosmetiky, která vznikla v Parmě. Spojuje péči o krásu vlasů s důrazem na kvalitu a ohleduplnější přístup k životnímu prostředí. Nabízí přípravky pro různé potřeby vlasů, a to jak pro péči v salonu, tak pro domácí použití.",
+        kuboText: "KUBO je profesionální vlasová kosmetika, která vznikla v Barceloně a čerpá inspiraci z japonské tradice péče. Její přípravky kombinují japonské a středomořské ingredience a zaměřují se na péči o vlasy i pokožku hlavy. V nabídce najdete řady pro hydrataci, regeneraci, ochranu barvy i lesk.",
         vouchersTitle: "Dárkové poukazy",
         voucherName: "Pro vaše blízké",
         voucherDescription: "Připravujeme možnost zakoupit poukaz online, obdržet ho e-mailem a vytisknout. Poukaz bude možné zakoupit také osobně v salonu.",
@@ -869,13 +982,12 @@
       },
       en: {
         navigationLabel: "Main navigation",
-        brandSubtitle: "Leština hair salon",
+        brandSubtitle: "Kadeřnický salon Leština",
         navServices: "Services & prices",
-        navProducts: "Hair care",
-        shopButton: "Click to view hair care products",
+        navProducts: "Hair Cosmetics",
+        shopButton: "Click to view the Online shop",
         shopEyebrow: "Hair care",
         shopTitle: "Online shop",
-        shopNotice: "Shop preview - the sample product and its price are not a real offer.",
         shopEmpty: "Products are coming soon.",
         cartTitle: "Shopping cart",
         cartEmpty: "Your cart is empty.",
@@ -887,8 +999,8 @@
         navVouchers: "Gift vouchers",
         navContact: "Contact",
         heroEyebrow: "Leština hair salon",
-        heroTitle: "Hair care with a personal touch.",
-        heroText: "Hair services by Janička, buy hair cosmetics and gift vouchers for your loved ones",
+        heroTitle: "Angels in your hair",
+        heroText: "Hairdressing services, ballroom hairstyles, wedding hairstyles, hair cosmetics and gift vouchers for your loved ones",
         heroVoucher: "Gift voucher",
         heroContact: "Contact the salon",
         servicesTitle: "Price list",
@@ -902,20 +1014,15 @@
         priceNote: "Price list effective from 1 September 2026.",
         shampooNote: "It is recommended to use the Detoxifying Davines shampoo before visiting the salon.",
         callSalon: "Call the salon",
-        productsEyebrow: "Hair care",
+        navShop:" Online shop",
         productsTitle: "Hair care products",
-        productsIntro: "Working with Davines hair care and the Japanese brand KUBO.",
-        davinesText: "Our Manifesto shapes our choices and how we do business. It brings together our values, our culture, and our long-term vision to help us stay true to these principles and shape a harmonious future. It is distinctly Davines: equal parts purpose and wonder, rooted in the belief that how we do things matters just as much as the actions we take. And our brand comes to life through the people who care for it every day. This is why our Manifesto video features the faces and represents the homes of our very own community - the ones who work tirelessly to keep our vision alive through their energy and inspiration. You’ll also meet a special guide to lead you through our manifesto, a furry friend who walks alongside our community listening with love and attention.",
-        kuboText: "The story of KUBO is not simply the creation of a brand. It is the story of a deep transformation, a personal quest, and a journey towards authenticity that began more than 15 years ago. It was a time when my dreams collided brutally with a monotonous reality. I was trapped in a tediously predictable life, where each day in the office suffocated me, and the creative spark that once illuminated my spirit slowly faded, consumed by routine.",
-        shopComing: "Take a look at our shop preview below",
-        vouchersEyebrow: "A gift for someone special",
-        vouchersTitle: "Gift vouchers",
-        voucherName: "For your loved ones",
-        voucherDescription: "We are preparing the option to buy a voucher online, receive it by email and print it. Vouchers will also be available to buy in person at the salon.",
-        voucherNewClients: "",
+        productsIntro: "At the salon, I use Davines hair care and the Japanese-inspired brand KUBO.",
+        davinesText: "Davines is a family-owned Italian professional hair care brand founded in Parma. It combines a focus on beautiful hair with quality and a more thoughtful approach to the environment. Its products address a range of hair needs and can be used both in the salon and at home.",
+        kuboText: "KUBO is a professional hair care brand from Barcelona, inspired by Japanese care traditions. Its preparations combine Japanese and Mediterranean ingredients and focus on caring for hair and the scalp. In the lineup you will find series for hydration, regeneration, color protection and shine.",
+        voucherDescription: "You can purchase a voucher online, receive it by email and print it. Vouchers will also be available to buy in person at the salon.",
         voucherNotice: "Online purchases are not available yet.",
         voucherContact: "Ask about a voucher",
-        contactEyebrow: "Find us",
+        contactEyebrow: "Find me",
         contactTitle: "Contact",
         contactSalon: "Leština hair salon",
         contactPhone: "Phone",
@@ -933,8 +1040,8 @@ const products = [
       en: "Kubo Repair Therapy"
     },
     description: {
-      cs: "KUBO .",
-      en: "Mixing set Kubo."
+      cs: "Regenerační kůra KUBO.",
+      en: "Regenerating therapy KUBO."
     },
     price: 1000,
     image: "Fotky/prvni-produkt.jpeg"
