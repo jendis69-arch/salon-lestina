@@ -217,15 +217,17 @@
     }
 
     .intro {
-      max-width: 750px;
+      max-width: none;
       color: var(--muted);
     }
 
     .notice {
-      padding: 16px 20px;
-      border-left: 3px solid var(--accent);
-      background: #f0e9e3;
-    }
+  padding: 18px 22px;
+  border-left: 4px solid var(--accent);
+  background: #f0e9e3;
+  color: var(--ink);
+  font-weight: bold;
+}
 
     .price-list {
       margin-top: 32px;
@@ -321,10 +323,10 @@
       }
 
      
-      .price-row {
-        gap: 15px;
-      }
-    }
+     .price-row {
+  gap: 15px;
+}
+}
   .shop-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
@@ -393,6 +395,73 @@
 
 #shop-details[open] summary {
   margin-bottom: 24px;
+}
+/* ===== Services: menu-card layout ===== */
+#sluzby .container {
+  width: min(720px, 90%);
+  text-align: center;
+}
+
+#sluzby h2 {
+  display: inline-block;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#sluzby .intro {
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sluzby .notice {
+  border-left: 0;
+  border-top: 3px solid var(--accent);
+  font-weight: normal;
+}
+
+#sluzby .price-list {
+  margin-top: 40px;
+  border-top: 0;
+}
+
+#sluzby .price-row {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0 0;
+  border-bottom: 0;
+}
+
+#sluzby .price-row:not(:last-child)::after {
+  content: "";
+  width: 55%;
+  height: 1px;
+  margin-top: 20px;
+  background: var(--line);
+}
+
+#sluzby .price-row strong {
+  font-size: 1.3rem;
+  color: var(--accent-dark);
+}
+#sluzby .small {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#sluzby .price-row span {
+  max-width: 560px;
+  text-align: center;
+}
+
+#sluzby .container > p:last-child {
+  text-align: center;
 }
   </style>
 </head>
@@ -510,6 +579,7 @@
       transition: none;
     }
   }
+    
 </style>
 
 <div class="hero-background">
@@ -593,7 +663,7 @@
         <h2 data-i18n="servicesTitle"></h2>
 
         <p class="intro" data-i18n="servicesIntro"></p>
-        <p class="notice" data-i18n="capacityNotice"></p>
+        
 
         <div class="price-list">
           <div class="price-row">
@@ -625,6 +695,7 @@
         <p class="small" data-i18n="priceNote"></p>
         <p class="small" data-i18n="shampooNote"></p>
         <p>
+          <p class="center" data-i18n="servicesNote"></p>
           <a class="button button-outline" href="tel:+420603828963" data-i18n="callSalon"></a>
         </p>
       </div>
@@ -745,7 +816,7 @@
       cs: {
         navigationLabel: "Hlavní navigace",
         brandSubtitle: "Kadeřnický salon Leština",
-        navServices: "Služby a ceník",
+        navServices: "Ceník",
         navProducts: "Kosmetika",
         shopButton: "Kliknutím se přesunete na výběr vlasové kosmetiky",
         shopEyebrow: "Péče o vlasy",
@@ -766,10 +837,8 @@
         heroText: "Kadeřnické služby, plesové účesy, vlasová kosmetika a dárkové poukazy pro vaše blízké",
         heroVoucher: "Dárkový poukaz",
         heroContact: "Kontaktujte salon",
-        servicesEyebrow: "Salon menu",
-        servicesTitle: "Služby a ceník",
+        servicesTitle: "Ceník",
         servicesIntro: "Cena závisí na spotřebě materiálu, náročnosti služby a hustotě a délce vlasů.",
-        capacityNotice: "Nepřijíám nové klientky, ale dárkové poukazy mohou využít i nové klientky.",
         serviceCut: "Střih vlasů, péče, konečná úprava",
         serviceRoots: "Barvení odrostů nebo tónování, péče, konečná úprava",
         serviceColour: "Barvení vlasů - celé délky, péče, konečná úprava",
@@ -822,10 +891,8 @@
         heroText: "Hair services by Janička, buy hair cosmetics and gift vouchers for your loved ones",
         heroVoucher: "Gift voucher",
         heroContact: "Contact the salon",
-        servicesEyebrow: "Salon menu",
-        servicesTitle: "Services & prices",
+        servicesTitle: "Price list",
         servicesIntro: "Prices depend on the amount of product used, the complexity of the service, and the thickness and length of your hair.",
-        capacityNotice: "I do not accept new clients, but gift vouchers can be used by new clients.",
         serviceCut: "Haircut, treatment and finishing",
         serviceRoots: "Root colouring or toning, treatment and finishing",
         serviceColour: "Full-length colouring, treatment and finishing",
