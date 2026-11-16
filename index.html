@@ -829,6 +829,39 @@
       </div>
     </section>
 
+<section class="kolaz-ucesu" aria-label="Ukázky účesů">
+  <style>
+    .kolaz-ucesu {
+      text-align: center;
+    }
+    .kolaz-ucesu h2 {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--ink);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .kolaz-ucesu img {
+      display: block;
+      width: min(100%, 600px);
+      height: auto;
+      margin: 0 auto;
+      border-radius: 6px;
+    }
+  </style>
+
+  <div class="container">
+    <h2>Moje Tvorba</h2>
+    <img
+      src="Fotky/Foto-galerie.jpeg"
+      alt="Koláž účesů a barev vlasů od Jany Kvapilové"
+      loading="lazy"
+    >
+  </div>
+</section>
+
     <section id="kontakt">
   <style>
     #kontakt .contact-layout {
@@ -965,7 +998,6 @@
         callSalon: "Zavolat do salonu",
         navShop:" E-shop",
         productsTitle: "Vlasová kosmetika",
-        productsIntro: "Pracuji s vlasovou kosmetikoiu Davines a španělskou značkou KUBO inspirovanou japonskou péčí.",
         davinesText: "Davines je italská rodinná značka profesionální vlasové kosmetiky, která vznikla v Parmě. Spojuje péči o krásu vlasů s důrazem na kvalitu a ohleduplnější přístup k životnímu prostředí. Nabízí přípravky pro různé potřeby vlasů, a to jak pro péči v salonu, tak pro domácí použití.",
         kuboText: "KUBO je profesionální vlasová kosmetika, která vznikla v Barceloně a čerpá inspiraci z japonské tradice péče. Její přípravky kombinují japonské a středomořské ingredience a zaměřují se na péči o vlasy i pokožku hlavy. V nabídce najdete řady pro hydrataci, regeneraci, ochranu barvy i lesk.",
         vouchersTitle: "Dárkové poukazy",
@@ -974,7 +1006,6 @@
         voucherNewClients: "Poukaz mohou využít i zákazníci, kteří u Jany ještě nebyli.",
         voucherNotice: "Nejen pro stálé klientky",
         voucherContact: "Zeptat se na poukaz",
-        contactEyebrow: "Najdete nás",
         contactTitle: "Kontakt",
         contactSalon: "Kadeřnický salon Leština",
         contactPhone: "Telefon",
@@ -1016,7 +1047,6 @@
         callSalon: "Call the salon",
         navShop:" Online shop",
         productsTitle: "Hair care products",
-        productsIntro: "At the salon, I use Davines hair care and the Japanese-inspired brand KUBO.",
         davinesText: "Davines is a family-owned Italian professional hair care brand founded in Parma. It combines a focus on beautiful hair with quality and a more thoughtful approach to the environment. Its products address a range of hair needs and can be used both in the salon and at home.",
         kuboText: "KUBO is a professional hair care brand from Barcelona, inspired by Japanese care traditions. Its preparations combine Japanese and Mediterranean ingredients and focus on caring for hair and the scalp. In the lineup you will find series for hydration, regeneration, color protection and shine.",
         voucherDescription: "You can purchase a voucher online, receive it by email and print it. Vouchers will also be available to buy in person at the salon.",
@@ -1149,8 +1179,126 @@ const products = [
     },
     price: 819,
     image: "Fotky/devaty-produkt.png"
+  },
+  {
+    id: "produkt-10",
+    name: {
+      cs: "Shampoo Repair 300 Ml KUBO",
+      en: "Shampoo Repair 300 Ml KUBO"
+    },
+    description: {
+      cs: "Regenerační šampon KUBO.",
+      en: "Regenerating shampoo KUBO."
+    },
+    price: 945,
+    image: "Fotky/desaty-produkt.png"
+  },
+  {
+    id: "produkt-11",
+    name: {
+      cs: "Shampoo Man 300 Ml KUBO",
+      en: "Shampoo Man 300 Ml KUBO"
+    },
+    description: {
+      cs: "Regenerační šampon KUBO pro muže.",
+      en: "Regenerating shampoo KUBO."
+    },
+    price: 945,
+    image: "Fotky/jedenacty-produkt.png"
+  },
+  {
+    id: "produkt-12",
+    name: {
+      cs: "KUBO Shine Shampoo ",
+      en: "KUBO Shine Shampoo"
+    },
+    description: {
+      cs: "Fialový šampon proti žlutým tónům.",
+      en: "Purple shampoo against yellow tones."
+    },
+    price: 945,
+    image: "Fotky/dvanacty-produkt.png"
+  },
+  {
+    id: "produkt-13",
+    name: {
+      cs: "Shampoo Colour 300 Ml KUBO",
+      en: "Shampoo Colour 300 Ml KUBO"
+    },
+    description: {
+      cs: "Bezsulfátový šampon pro barvené vlasy.",
+      en: "Sulfate-free shampoo for colored hair."
+    },
+    price: 945,
+    image: "Fotky/trinacty-produkt.png"
+  },
+  {
+    id: "produkt-14",
+    name: {
+      cs: "Conditioner Hydrate 300 Ml KUBO",
+      en: "Conditioner Hydrate 300 Ml KUBO"
+    },
+    description: {
+      cs: "Hydratační kondicionér pro suché vlasy.",
+      en: "Hydrating conditioner for dry hair."
+    },
+    price: 995,
+    image: "Fotky/ctrnacty-produkt.png"
+  },
+  {
+    id: "produkt-15",
+    name: {
+      cs: "Conditioner Repair 300 Ml KUBO",
+      en: "Conditioner Repair 300 Ml KUBO"
+    },
+    description: {
+      cs: "Regenerační kondicionér pro poškozené vlasy.",
+      en: "Regenerating conditioner for damaged hair."
+    },
+    price: 995,
+    image: "Fotky/patnacty-produkt.png"
+  },
+  {
+    id: "produkt-16",
+    name: {
+      cs: "Conditioner Shine 300 Ml KUBO",
+      en: "Conditioner Shine 300 Ml KUBO"
+    },
+    description: {
+      cs: "Fialový kondicionér proti žlutým tónům.",
+      en: "Purple conditioner against yellow tones."
+    },
+    price: 995,
+    image: "Fotky/sestnacty-produkt.png"
+  },
+  {
+    id: "produkt-17",
+    name: {
+      cs: "Conditioner Man 300 Ml KUBO",
+      en: "Conditioner Man 300 Ml KUBO"
+    },
+    description: {
+      cs: "Regenerační kondicionér pro muže.",
+      en: "Regenerating conditioner for men."
+    },
+    price: 995,
+    image: "Fotky/sedmnacty-produkt.png"
+  },
+  {
+    id: "produkt-18",
+    name: {
+      cs: "KUBO Conditioner Colour 300 Ml KUBO",
+      en: "KUBO Conditioner Colour 300 Ml KUBO"
+    },
+    description: {
+      cs: "Bezsulfátový kondicionér pro barvené vlasy.",
+      en: "Sulfate-free conditioner for colored hair."
+    },
+    price: 995,
+    image: "Fotky/osmnacty-produkt.png"
   }
 ];
+
 
 // Košík funguje pouze během otevření stránky.
 // Po obnovení nebo zavření stránky se vyprázdní.
