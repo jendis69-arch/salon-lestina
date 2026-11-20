@@ -519,7 +519,60 @@
   justify-content: space-evenly;
   gap: 12px 18px;
 }
+/* ===== Photo gallery ===== */
+#galerie .container {
+  text-align: center;
+}
 
+#galerie h2 {
+  display: inline-block;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+/* ===== Shop search and filters ===== */
+.shop-controls {
+  display: grid;
+  grid-template-columns: minmax(180px, 2fr) minmax(140px, 1fr) minmax(160px, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.shop-controls input,
+.shop-controls select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+@media (max-width: 700px) {
+  .shop-controls {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
@@ -539,6 +592,7 @@
         <a href="#kosmetika" data-i18n="navProducts"></a>
         <a href="#eshop" data-i18n="navShop"></a>
         <a href="#poukazy" data-i18n="navVouchers"></a>
+        <a href="#galerie" data-i18n="navGallery"></a>
         <a href="#kontakt" data-i18n="navContact"></a>
       </nav>
 
@@ -792,6 +846,25 @@
 
     <div class="shop-layout">
       <div>
+        <div class="shop-controls">
+  <input
+    type="search"
+    id="shop-search"
+    placeholder="Vyhledat produkt..."
+  >
+
+  <select id="shop-brand-filter">
+    <option value="all" data-i18n="filterAll">Všechny značky</option>
+    <option value="kubo">KUBO</option>
+    <option value="davines">Davines</option>
+  </select>
+
+  <select id="shop-sort">
+    <option value="name" data-i18n="sortName">Řadit podle názvu</option>
+    <option value="price-asc" data-i18n="sortPriceAsc">Cena: od nejnižší</option>
+    <option value="price-desc" data-i18n="sortPriceDesc">Cena: od nejvyšší</option>
+  </select>
+</div>
         <div id="shop-products" class="shop-products"></div>
         <p id="shop-empty" class="small" data-i18n="shopEmpty" hidden></p>
       </div>
@@ -828,40 +901,16 @@
         </article>
       </div>
     </section>
-
-<section class="kolaz-ucesu" aria-label="Ukázky účesů">
-  <style>
-    .kolaz-ucesu {
-      text-align: center;
-    }
-    .kolaz-ucesu h2 {
-      display: inline-block;
-      margin-bottom: 28px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--ink);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .kolaz-ucesu img {
-      display: block;
-      width: min(100%, 600px);
-      height: auto;
-      margin: 0 auto;
-      border-radius: 6px;
-    }
-  </style>
-
+   <section id="galerie">
   <div class="container">
-    <h2>Moje Tvorba</h2>
-    <img
-      src="Fotky/Foto-galerie.jpeg"
-      alt="Koláž účesů a barev vlasů od Jany Kvapilové"
-      loading="lazy"
-    >
+    <span class="eyebrow" data-i18n="galleryEyebrow"></span>
+    <h2 data-i18n="galleryTitle"></h2>
+
+    <div class="gallery">
+      <img src="Fotky/Foto-galerie.jpeg" alt="Moje tvorba">
+    </div>
   </div>
 </section>
-
     <section id="kontakt">
   <style>
     #kontakt .contact-layout {
@@ -925,7 +974,7 @@
         </p>
         <p>
           <strong>Instagram</strong><br>
-          <a href="https://www.instagram.com/andelevtvychvlasech/" target="_blank" rel="noopener noreferrer">@andelevtvychvlasech</a>
+          <a href="https://www.instagram.com/andelevtvychvlasech/" target="_blank" rel="noopener noreferrer">andelevtvychvlasech</a>
         </p>
         <p>
           <strong>Facebook</strong><br>
@@ -1009,8 +1058,16 @@
         contactTitle: "Kontakt",
         contactSalon: "Kadeřnický salon Leština",
         contactPhone: "Telefon",
-        footerText: "Kadeřnický salon Leština"
-      },
+        footerText: "Kadeřnický salon Leština",
+        navGallery: "Moje tvorba",
+        galleryTitle: "Moje tvorba",
+        searchPlaceholder: "Vyhledat produkt...",
+        filterAll: "Všechny značky",
+        sortName: "Řadit podle názvu",
+        sortPriceAsc: "Cena: od nejnižší",
+        sortPriceDesc: "Cena: od nejvyšší",
+        shopNoResults: "Žádné produkty neodpovídají vašemu hledání.",
+              },
       en: {
         navigationLabel: "Main navigation",
         brandSubtitle: "Kadeřnický salon Leština",
@@ -1034,7 +1091,7 @@
         heroText: "Hairdressing services, ballroom hairstyles, wedding hairstyles, hair cosmetics and gift vouchers for your loved ones",
         heroVoucher: "Gift voucher",
         heroContact: "Contact the salon",
-        servicesTitle: "Price list",
+        servicesTitle: "Services & prices",
         servicesIntro: "Prices depend on the amount of product used, the complexity of the service, and the thickness and length of your hair.",
         serviceCut: "Haircut, treatment and finishing",
         serviceRoots: "Root colouring or toning, treatment and finishing",
@@ -1049,14 +1106,24 @@
         productsTitle: "Hair care products",
         davinesText: "Davines is a family-owned Italian professional hair care brand founded in Parma. It combines a focus on beautiful hair with quality and a more thoughtful approach to the environment. Its products address a range of hair needs and can be used both in the salon and at home.",
         kuboText: "KUBO is a professional hair care brand from Barcelona, inspired by Japanese care traditions. Its preparations combine Japanese and Mediterranean ingredients and focus on caring for hair and the scalp. In the lineup you will find series for hydration, regeneration, color protection and shine.",
+        vouchersTitle: "Gift vouchers",
+        voucherName: "For your loved ones",
         voucherDescription: "You can purchase a voucher online, receive it by email and print it. Vouchers will also be available to buy in person at the salon.",
-        voucherNotice: "Online purchases are not available yet.",
+        voucherNotice: "Not only for regular clients",
         voucherContact: "Ask about a voucher",
         contactEyebrow: "Find me",
         contactTitle: "Contact",
         contactSalon: "Leština hair salon",
         contactPhone: "Phone",
-        footerText: "Leština hair salon"
+        footerText: "Leština hair salon",
+        navGallery: "My work",
+        galleryTitle: "My work",
+        searchPlaceholder: "Search products...",
+        filterAll: "All brands",
+        sortName: "Sort by name",
+        sortPriceAsc: "Price: lowest first",
+        sortPriceDesc: "Price: highest first",
+        shopNoResults: "No products match your search.",
       }
     };
 
@@ -1322,9 +1389,37 @@ function renderShop(language) {
   productList.replaceChildren();
   cartList.replaceChildren();
 
-  document.getElementById("shop-empty").hidden = products.length > 0;
+const search = document.getElementById("shop-search").value
+  .trim()
+  .toLocaleLowerCase(language);
 
-  for (const product of products) {
+const brand = document.getElementById("shop-brand-filter").value;
+const sort = document.getElementById("shop-sort").value;
+
+const filteredProducts = products.filter((product) => {
+  const name = product.name[language].toLocaleLowerCase(language);
+  const description = product.description[language].toLocaleLowerCase(language);
+
+  const matchesSearch = name.includes(search) || description.includes(search);
+  const matchesBrand = brand === "all" || name.includes(brand);
+
+  return matchesSearch && matchesBrand;
+});
+
+filteredProducts.sort((a, b) => {
+  if (sort === "price-asc") return a.price - b.price;
+  if (sort === "price-desc") return b.price - a.price;
+  return a.name[language].localeCompare(b.name[language], language);
+});
+
+const emptyMessage = document.getElementById("shop-empty");
+emptyMessage.hidden = filteredProducts.length > 0;
+emptyMessage.textContent = products.length === 0
+  ? text.shopEmpty
+  : text.shopNoResults;
+
+for (const product of filteredProducts) {
+
     const card = document.createElement("article");
     card.className = "card shop-product";
 
@@ -1403,6 +1498,9 @@ function renderShop(language) {
     
     function setLanguage(language) {
       const text = translations[language];
+        document.getElementById("shop-search").placeholder = text.searchPlaceholder;
+
+  document.documentElement.lang = language;
       document.documentElement.lang = language;
       document.title = language === "cs"
         ? "Kadeřnický salon Leština | Jana Kvapilová"
@@ -1428,6 +1526,17 @@ function renderShop(language) {
 
     document.getElementById("en-button")
       .addEventListener("click", () => setLanguage("en"));
+document.getElementById("shop-search").addEventListener("input", () => {
+  renderShop(document.documentElement.lang);
+});
+
+document.getElementById("shop-brand-filter").addEventListener("change", () => {
+  renderShop(document.documentElement.lang);
+});
+
+document.getElementById("shop-sort").addEventListener("change", () => {
+  renderShop(document.documentElement.lang);
+});
 
     setLanguage("cs");
   </script>
